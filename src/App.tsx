@@ -47,4 +47,12 @@ function App() {
   );
 }
 
+//Union Types
+let value: boolean | number;
+value = true;
+value = 1;
+
+let arrayUni: (number | string)[];
+arrayUni = [1, 3, "hello"];
+
 export default App;
