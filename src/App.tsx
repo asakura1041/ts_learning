@@ -1,6 +1,10 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Data from './data.json';
+import Test from './Test'
+
+type USERS = typeof Data;
 
 const userName = "asakura";
 let userAge: number = 21;
@@ -38,15 +42,6 @@ const userA: USER = {
   password: "asakura1041"
 }
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-      </header>
-    </div>
-  );
-}
-
 //Union Types
 let value: boolean | number;
 value = true;
@@ -82,7 +77,58 @@ const SPORTS = {
   baseball: "Baseball"
 }
 
+// enum
+enum OS {
+  Windows,
+  Mac,
+  Linux
+}
+
+interface PC {
+  id: number;
+  OSTYPE: OS;
+}
+
+const PC1: PC = {
+  id: 1,
+  OSTYPE: OS.Windows
+}
+
+// 型の互換性
+const com1 = "test";
+let com2: string = com1;
+
+let com3: string = "test";
+
+// let func1 = (x: number) => {};
+let func2 = (x: string) => {};
+
+//Generics
+interface GEN<T>{
+  item: T;
+}
+const gen0: GEN<string> = { item: "hello" }
+// const gen1: GEN<> = { item: "hello" }
+// const gen2: GEN<string> = { item: 1 }
+
+interface GEN2<T extends string | number > {
+  item: T
+}
+
+const gen4: GEN2<number> = { item: 1 };
+// const gen5: GEN2<boolean> = { item: true };
+
 let keySports: keyof typeof SPORTS;
 keySports = "soccer"
+
+const App: React.FC = () => {
+  return (
+    <div className="App">
+      <header className="App-header">
+        <Test text="asakura" />
+      </header>
+    </div>
+  );
+}
 
 export default App;
