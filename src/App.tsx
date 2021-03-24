@@ -55,4 +55,34 @@ value = 1;
 let arrayUni: (number | string)[];
 arrayUni = [1, 3, "hello"];
 
+//typeof
+let msg1: string = "hello";
+let msg2: typeof msg1;
+msg2 = "hello";
+
+let animal = {
+  cat: "small cat"
+}
+
+let newAnimal: typeof animal = {
+  cat: "big cat"
+}
+
+//keyof
+type KEYS = {
+  primary: string;
+  secondary: string
+}
+
+let key: keyof KEYS;
+key = "primary";
+
+const SPORTS = {
+  soccer: "Soccer",
+  baseball: "Baseball"
+}
+
+let keySports: keyof typeof SPORTS;
+keySports = "soccer"
+
 export default App;
